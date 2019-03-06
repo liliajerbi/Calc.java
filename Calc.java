@@ -1,112 +1,97 @@
 import java.util.Scanner;
 
 class Calc {
-	
-	public static void main (String[]args){
-		Scanner sc=new Scanner (System.in);
-		int num=0;
-		
-		
-		System.out.println("Entree un premier nombre");
-		String numberOne = sc.nextLine();
-		int number_1 = Integer.parseInt(numberOne);
-		System.out.println("Entree un signe");
-		String signe = sc.nextLine();
-		System.out.println("Entree un deuxieme nombre");
-		String numberTwo = sc.nextLine();
-		int number_2 = Integer.parseInt(numberTwo);
-		
-		double a = calculer((double)number_1,(double) number_2, signe);
-		System.out.println("Le resultat est " + a);
-		System.out.println("Voulez vous continuer ? Oui/Non ");
-		String rep = sc.nextLine();
-		
-		while (rep.equals("Oui")) {
-			double n1 = (double)number_1;
-			n1=a;
-			System.out.println("Entree un signe");
-			signe = sc.nextLine();
-			System.out.println("Entree un deuxieme nombre");
-			numberTwo = sc.nextLine();
-			number_2 = Integer.parseInt(numberTwo);
-			a = calculer((double)n1,(double) number_2, signe);
-			System.out.println("Le resultat est " + a);
-			System.out.println("Voulez vous continuer ? Oui/Non ");
-			rep = sc.nextLine();
 
-		}
-		
-		
-		System.out.println("Good bye");
-		
-		
-	}
-		
-		
-	
-	public static double calculer (double number_1, double number_2, String signe){
-		if (signe.equals("+")){
-			return add(number_1, number_2);
-		}
-		if (signe.equals("-")){
-			return subtract(number_1, number_2);
-		}
-		if (signe.equals("x")){
-			return multiply(number_1, number_2);
-		}
-		if (signe.equals("/")){
-			return divide(number_1, number_2);
-		}
-		if (signe.equals("%")){
-			return modulo(number_1, number_2);
-		}
-		if (signe.equals("^")){
-			return power(number_1, number_2);
-		}
-		else {
-			return 0;
-		}
-}
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-//addition
-	public static double add (double numberOne, double numberTwo) {
-		double resultat = numberOne + numberTwo;
-		return resultat;	
-	}
-//soustraction
-	public static double subtract (double numberOne, double numberTwo) {
-		double resultat = numberOne - numberTwo;
-		return resultat;
+        System.out.println("Entree un premier nombre");
+        String line = sc.nextLine();
+        double number1 = (double) Integer.parseInt(line);
+        System.out.println("Entree un signe");
+        String signe = sc.nextLine();
+        System.out.println("Entree un deuxieme nombre");
+        line = sc.nextLine();
+        double number2 = (double) Integer.parseInt(line);
 
-	}
+        double result = calculate(number1, number2, signe);
+        System.out.println("Le resultat est " + result);
+        System.out.println("Voulez vous continuer ? Oui/Non ");
+        String answer = sc.nextLine();
 
-//multiplication
-	public static double multiply (double numberOne, double numberTwo) {
-		double resultat = numberOne * numberTwo;
-		return resultat;
+        while (answer.equalsIgnoreCase("Oui")) {
+            System.out.println("Entree un signe");
+            signe = sc.nextLine();
+            System.out.println("Entree un deuxieme nombre");
+            line = sc.nextLine();
+            number2 = (double) Integer.parseInt(line);
+            result = calculate((double) result, number2, signe);
+            System.out.println("Le resultat est " + result);
+            System.out.println("Voulez vous continuer ? Oui/Non ");
+            answer = sc.nextLine();
+        }
 
-	}
+        System.out.println("Good bye");
+    }
 
-//division
-	public static double divide (double numberOne, double numberTwo) {
-		double resultat = numberOne / numberTwo;
-		return resultat;
+    public static double calculate(double number1, double number2, String signe) {
+        if (signe.equals("+")) {
+            return add(number1, number2);
+        }
+        if (signe.equals("-")) {
+            return subtract(number1, number2);
+        }
+        if (signe.equals("x")) {
+            return multiply(number1, number2);
+        }
+        if (signe.equals("/")) {
+            return divide(number1, number2);
+        }
+        if (signe.equals("%")) {
+            return modulo(number1, number2);
+        }
+        if (signe.equals("^")) {
+            return power(number1, number2);
+        }
+        return 0;
+    }
 
-	}
+    //addition
+    public static double add(double number1, double number2) {
+        double resultat = number1 + number2;
+        return resultat;
+    }
 
-//modulo
+    //soustraction
+    public static double subtract(double number1, double number2) {
+        double resultat = number1 - number2;
+        return resultat;
 
-	public static double modulo (double numberOne, double numberTwo) {
-		double resultat = numberOne % numberTwo;
-		return resultat;
-	}
+    }
 
-//puissance
-	public static double power (double numberOne, double numberTwo) {
-		double resultat = Math.pow(numberOne, numberTwo);
-		return resultat;
-	}
-	
+    //multiplication
+    public static double multiply(double number1, double number2) {
+        double resultat = number1 * number2;
+        return resultat;
 
+    }
 
+    //division
+    public static double divide(double number1, double number2) {
+        double resultat = number1 / number2;
+        return resultat;
+
+    }
+
+    //modulo
+    public static double modulo(double number1, double number2) {
+        double resultat = number1 % number2;
+        return resultat;
+    }
+
+    //puissance
+    public static double power(double number1, double number2) {
+        double resultat = Math.pow(number1, number2);
+        return resultat;
+    }
 }
