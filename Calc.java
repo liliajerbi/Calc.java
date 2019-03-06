@@ -25,19 +25,19 @@ class Calc {
 			double n1 = (double)number_1;
 			n1=a;
 			System.out.println("Entree un signe");
-			 signe = sc.nextLine();
+			signe = sc.nextLine();
 			System.out.println("Entree un deuxieme nombre");
-			 numberTwo = sc.nextLine();
-			 number_2 = Integer.parseInt(numberTwo);
-			 a = calculer((double)n1,(double) number_2, signe);
+			numberTwo = sc.nextLine();
+			number_2 = Integer.parseInt(numberTwo);
+			a = calculer((double)n1,(double) number_2, signe);
 			System.out.println("Le resultat est " + a);
 			System.out.println("Voulez vous continuer ? Oui/Non ");
-			 rep = sc.nextLine();
+			rep = sc.nextLine();
 
 		}
 		
 		
-			System.out.println("Good bye");
+		System.out.println("Good bye");
 		
 		
 	}
